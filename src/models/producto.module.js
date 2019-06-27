@@ -5,29 +5,32 @@ const mongoose = require('mongoose');
 var schema = new mongoose.Schema(
  {  
     id: {
-        type: String,
-        enum: ['CONFIRM', 'RESET'],
-        index: true
-      },
-    nombre: {
-        type: String,
-        default: config.EMAIL_FROM
-      },
-    imagen_url: {
-        type: String,
-        required: true
-      },
-    precio: {
-        type: Number,
-        required: true
-      }
+      type: Number,
+      // enum: ['CONFIRM', 'RESET'],
+      index: false
     },
-    {
-      timestamps: {
-        createdAt: 'metadata.createdAt',
-        updatedAt: 'metadata.updatedAt'
-      }
+    nombre: {
+      type: String,
+      lowercase: true,
+      required: true  
+    },
+    imagen_url: {
+      type: String,
+      lowercase: true,
+      required: true
+    },
+    precio: {
+      type: Number,
+      lowercase: true,
+      required: true
     }
+  },
+  {
+    timestamps: {
+      createdAt: 'metadata.createdAt',
+      updatedAt: 'metadata.updatedAt'
+    }
+  }
 );
 
 module.exports = mongoose.model('Producto', schema);
