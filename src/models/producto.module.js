@@ -4,21 +4,21 @@ const mongoose = require('mongoose');
 
 var schema = new mongoose.Schema(
  {  
-    messageType: {
+    id: {
         type: String,
         enum: ['CONFIRM', 'RESET'],
         index: true
       },
-      from: {
+    nombre: {
         type: String,
         default: config.EMAIL_FROM
       },
-      subject: {
+    imagen_url: {
         type: String,
         required: true
       },
-      body: {
-        type: String,
+    precio: {
+        type: Number,
         required: true
       }
     },

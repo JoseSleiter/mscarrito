@@ -1,6 +1,6 @@
 'use strict';
 
-class ProductosController{
+class ProductoController{
     static async index(req, res){      
         try{
             res.send({response: "Aqui"})
@@ -43,4 +43,4 @@ class ProductosController{
     }
 }
 
-module.exports = ProductosController;
+module.exports = ProductoController;
