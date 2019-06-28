@@ -9,6 +9,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
 // Routes
-app.use(require('./routes/routes.productos'))
+app.use('/api/' ,require('./routes/routes.productos'))
+
 
 module.exports = app;

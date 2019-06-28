@@ -14,15 +14,20 @@ class ProductoController{
 
     static async store(req, res){      
         try{
-            console.log(req.body)
-            const {data} = req.body
+            // console.log(req.body)
+            const {...data} = req.body
+            console.log(data)
             if(data){
-                res.json("Save")
+                Producto.create({ nombre: data.nombre , imagen_url: data.imagen_url, precio: data.precio }, function (err, saved) {
+                    if (err) return res.status(500).json(err);
+                    // saved!
+                    res.status(202).json("Save")
+                  });                
             }else{
                 res.status(500).json("Response Error falta un dato")
             }            
         }catch( exception){
-            res.status(500).send(exception)            
+            res.status(501).send(exception)            
         }
     }
 
@@ -56,7 +61,16 @@ class ProductoController{
     }
 
     static async delete(req, res) {
-        
+        let checkedItem = req.params.id;
+        // if (!mongoose.Types.ObjectId.isValid(checkedItem)) {
+        //     checkedItem = checkedItem.replace(/\s/g, '');
+        // }
+        // Item.findByIdAndRemove(checkedItem, function(err) {
+        //     if (!err) {
+        //       console.log("Successfully Deleted " + checkedItem);
+        //     //   res.redirect("/");
+        //     }
+        // });
     }
 }
 

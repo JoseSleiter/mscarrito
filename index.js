@@ -9,9 +9,9 @@ var app = require('./src/app');
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/curso_mean_social')
+mongoose.connect('mongodb://localhost:27017/local', { useNewUrlParser: true})
     .then(() => {
-        console.log("La conexión a la base de datos curso_mean_social se ha realizado correctamente")
+        console.log("La conexión a la base de datos local se ha realizado correctamente")
         
         // CREAR EL SERVIDOR WEB CON NODEJS
         app.listen( app.get('port'), () => {

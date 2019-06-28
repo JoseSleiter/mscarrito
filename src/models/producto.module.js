@@ -4,11 +4,7 @@ const mongoose = require('mongoose');
 
 var schema = new mongoose.Schema(
  {  
-    id: {
-      type: Number,
-      // enum: ['CONFIRM', 'RESET'],
-      index: false
-    },
+
     nombre: {
       type: String,
       lowercase: true,
@@ -32,5 +28,9 @@ var schema = new mongoose.Schema(
     }
   }
 );
+
+schema.virtual('id').get(function() {
+  return this._id;
+});
 
 module.exports = mongoose.model('Producto', schema);
