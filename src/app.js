@@ -10,6 +10,7 @@ app.use(express.json())
 
 // Routes
 app.use('/api/' ,require('./routes/routes.productos'))
-
+app.use('/api/', require('./routes/routes.clientes'))
+app.use('/api/', require('./routes/routes.direcciones'))
 
 module.exports = app;

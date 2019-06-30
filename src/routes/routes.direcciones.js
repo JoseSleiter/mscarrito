@@ -1,4 +1,10 @@
 const express = require ('express')
-const direccionesCrtl = require('../controllers/direccion.controller')
-const direcciones = express.Router();
+const direccionCrtl = require('../controllers/direccion.controller')
+const direccion = express.Router();
 
+
+direccion
+.get('/direcciones', direccionCrtl.index)
+.post('/direcciones', direccionCrtl.store)
+
+module.exports = direccion;
