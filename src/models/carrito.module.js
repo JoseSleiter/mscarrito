@@ -22,4 +22,4 @@ const schema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('carrito', scheme );
+module.exports = mongoose.model('Carrito', schema );

@@ -4,7 +4,8 @@ const Direccion = require('../models/direccion.module')
 class direccionesController{
     static async index(req, res){
         try {
-            let response = Direccion.find({})
+            let response = Direccion.find({}).populate('cliente_id')
+
             response.then( direcciones =>{
                 if(!direcciones)
                 return res.status(404).send({message: "No exist result"})

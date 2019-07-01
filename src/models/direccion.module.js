@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
     cliente_id:{
         type: mongoose.Schema.Types.ObjectId,
-        path: Cliente,
+        ref: Cliente,
         required: true
     },
     latitud:{
