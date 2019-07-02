@@ -7,4 +7,5 @@ producto
 .post('/productos', ProductoCtrl.store)
 .get('/productos/:id', ProductoCtrl.show)
 .delete('/productos/:id', ProductoCtrl.delete)
+
 module.exports = producto;

@@ -29,25 +29,26 @@ class ProductoController{
      * @param {*} req datos de peticion del cliente
      * @param {*} res respuesta del servidor
      */
-    static async store(req, res){      
+    static async store(req, res){  
+        if( !Object.keys(req.body).length >= 3)
+                return res.status(422).json({data: "Error faltan datos"})
+                    
         const {...data} = req.body
         try{
-            if( !Object.keys(data).length >= 3)
-                return res.status(422).json({data: "Error faltan datos"})
-                
-                let response = Producto.create({  
-                    nombre: data.nombre, 
-                    imagen_url: data.imagen_url, 
-                    precio: data.precio 
-                });                
-                
-                response.then(products => {                        
-                    // create!
-                    res.status(201).json({ data: products})
-                }).catch( err => {
-                    // No create!
-                    res.status(400).send({message: 'Error en la peticion', err});
-                });           
+        
+            let response = Producto.create({  
+                nombre: data.nombre, 
+                imagen_url: data.imagen_url, 
+                precio: data.precio 
+            });                
+            
+            response.then(products => {                        
+                // create!
+                res.status(201).json({ data: products})
+            }).catch( err => {
+                // No create!
+                res.status(400).send({message: 'Error en la peticion', err});
+            });           
         }catch( exception){
             res.status(500).send(exception)            
         }

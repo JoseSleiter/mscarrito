@@ -22,12 +22,11 @@ class clienteController {
     }
 
     static async store(req, res){
+        if( !Object.keys(data).length >= 2) 
+        return res.status(422).send({menssage : "No se tienen todos los datos"})
         const {...data} = req.body;
         console.log(data)
-        try {
-            if( !Object.keys(data).length >= 2) 
-            return res.status(422).send({menssage : "No se tienen todos los datos"})
-
+        try {       
             let response = Cliente.create({nombre: data.nombre, apellido: data.apellido})
 
             response.then( cliente =>{                        

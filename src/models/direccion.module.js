@@ -1,7 +1,7 @@
 'use strict'
 const Cliente = require('./cliente.module')
-
 const mongoose = require('mongoose');
+
 const schema = new mongoose.Schema({
     cliente_id:{
         type: mongoose.Schema.Types.ObjectId,

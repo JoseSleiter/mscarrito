@@ -22,6 +22,9 @@ class direccionesController{
     }
 
     static async store(req, res){
+        if( !Object.keys(data).length >= 3) 
+        return res.status(422).send({menssage : "No se tienen todos los datos"})
+
         const {...data} = req.body;
         try {
             let response = Direccion.create({cliente_id: data.cliente_id, latitud: data.latitud, longitud: data.longitud})
@@ -31,7 +34,7 @@ class direccionesController{
                 res.status(200).send({data: direcciones})
 
             }).catch( err =>{
-                res.status(400).send({message: "Error en peticion", error: err})
+                res.status(422).send({message: "Error en peticion", error: err})
 
             })
         } catch (error) {

@@ -13,4 +13,7 @@ app.use('/api/' ,require('./routes/routes.productos'))
 app.use('/api/', require('./routes/routes.clientes'))
 app.use('/api/', require('./routes/routes.direcciones'))
 app.use('/api/', require('./routes/routes.carritos'))
+app.use('/api/', require('./routes/routes.elementos'))
+app.use('/api/', require('./routes/routes.caracteristicas'))
+
 module.exports = app;

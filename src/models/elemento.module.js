@@ -1,21 +1,27 @@
 'use strict'
 const Producto = require ('../models/producto.module')
-
+const Carrito = require ('../models/carrito.module')
 const mongoose = require ('mongoose')
-const scheme = new mongoose.Schema({
+
+const schema = new mongoose.Schema({
     producto_id:{
         type: [mongoose.Schema.Types.ObjectId],      
         ref: Producto,
         required: true
     },
     carrito_id:{
-        type: string,
+        type: [mongoose.Schema.Types.ObjectId],      
+        ref: Carrito,
         required: true
     },
     cantidad:{
+        type: Number,
         required: true
     },
     precio:{
+        type: Number,
         required: true
     },
 });
+
+module.exports = mongoose.model('Elemento', schema)
