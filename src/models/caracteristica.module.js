@@ -1,11 +1,11 @@
 'use strict'
-const Cliente = require('../models/cliente.module')
+const Producto = require('../models/producto.module')
 const mongoose = require('mongoose')
 
 var schema = new mongoose.Schema({
     producto_id:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: Cliente,
+        ref: Producto,
         required: true
     },
     nombre:{

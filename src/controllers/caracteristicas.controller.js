@@ -26,11 +26,11 @@ class caracteristicasController{
         return res.status(422).send({menssage : "No se tienen todos los datos"})
 
         let {producto_id, nombre, impacto_precio} = req.body
-        
+
         try {
-            Carrito.create({producto_id, nombre, impacto_precio}).then( carrito =>{
-                console.log(carrito)
-                res.status(201).send({menssage: "create", data :  carrito})
+            Caracteristica.create({producto_id, nombre, impacto_precio}).then( caracteristica =>{
+                console.log(caracteristica)
+                res.status(201).send({menssage: "create", data :  caracteristica})
             }).catch( err => {
                 console.log({message: err.message})
                 res.status(422).send({message: "Error en peticion", error: err})

@@ -7,7 +7,8 @@ var schema = new mongoose.Schema(
     id: {
       type: Number, 
       index: true, 
-      auto: true},    
+      auto: true
+    },    
     nombre: {
       type: String,
       lowercase: true,

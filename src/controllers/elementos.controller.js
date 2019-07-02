@@ -42,8 +42,15 @@ class ElementosController {
     }
 
     static async show(req, res){
-
-
+        let {carrito_id} = req.params 
+        let response = Elemento.find({carrito_id}).populate('producto_id').populate('carrito_id')
+        console.log(req.params)
+        response.then( elementos =>{
+            res.status(200).send(elementos)
+        }).catch( err => {
+            res.status(422).send(err)
+            
+        })
     }
 }
 
