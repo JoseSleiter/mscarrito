@@ -3,7 +3,7 @@ const ClienteCrtl = require('../controllers/cliente.controller')
 const cliente = express.Router();
 
 cliente
-.get('/clientes', ClienteCrtl.index )
-.post('/clientes', ClienteCrtl.store)
+.get('/', ClienteCrtl.index )
+.post('/', ClienteCrtl.store)
 
 module.exports = cliente;

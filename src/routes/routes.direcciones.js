@@ -4,7 +4,7 @@ const direccion = express.Router();
 
 
 direccion
-.get('/direcciones', direccionCrtl.index)
-.post('/direcciones', direccionCrtl.store)
+.get('/', direccionCrtl.index)
+.post('/', direccionCrtl.store)
 
 module.exports = direccion;
