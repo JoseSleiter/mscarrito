@@ -8,6 +8,9 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
 // Routes
+app.get('/', function(req, res) {
+  res.send('Microservicio de Carrito');
+});
 app.use('/productos' ,require('./routes/routes.productos'))
 app.use('/clientes', require('./routes/routes.clientes'))
 app.use('/direcciones', require('./routes/routes.direcciones'))
