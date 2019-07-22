@@ -9,7 +9,7 @@ var app = require('./src/app');
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/local', { useNewUrlParser: true})
+mongoose.connect('mongodb://5a20f97a6005:27017/local', { useNewUrlParser: true})
     .then(() => {
         console.log("La conexión a la base de datos local se ha realizado correctamente")
         
