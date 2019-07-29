@@ -8,6 +8,8 @@ WORKDIR /app
 
 COPY /api .
 
+# RUN npm install -g npm
+
 RUN npm install
 
 EXPOSE 3000

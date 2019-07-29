@@ -3,10 +3,16 @@ const Producto = require('../models/producto.module');
 const ObjectID = require('mongodb').ObjectID;   
 
 class ProductoController{
+
+    static async test(req, res){
+        res.status(200).json({data: "todo bien, es un test"})
+    }
+
+
     /**
      * Returns all the products in the documents
      * @param {*} req datos de peticion del cliente
-     * @param {*} res respuesta del servidor
+     * @param {*} res respuesta del servidor 39200
      */
     static async index(req, res){      
         try{
