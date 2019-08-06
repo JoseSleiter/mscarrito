@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 // set variables
-app.set('port', '3000');
+// app.set('port', '3000');
 app.set('json spaces', 2)
 
 // middlewares
