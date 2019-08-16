@@ -10,7 +10,7 @@ mongoose.Promise = global.Promise;
 // Conexion
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true})
 .then(() => {
-    console.log("La conexión a la base de datos local se ha realizado correctamente")        
+    console.log(`La conexión a la base de datos local se ha realizado correctamente `)        
     // CREAR EL SERVIDOR WEB CON NODEJS
     app.listen( process.env.PORT, () => {
         console.log(`Server started on port ${ process.env.PORT}`);

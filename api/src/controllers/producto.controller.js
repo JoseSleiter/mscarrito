@@ -1,11 +1,19 @@
 'use strict';
+require('../config/config')
 const Producto = require('../models/producto.module');
 const ObjectID = require('mongodb').ObjectID;   
 
 class ProductoController{
 
     static async test(req, res){
-        res.status(200).json({data: "todo bien, es un test"})
+        res.status(200).json(
+            {
+                data: "todo bien, es un test",
+                port_MONGO: process.env.MONGO_SERVICE_PORT,
+                host_MONGO: process.env.MONGO_SERVICE_HOST,
+                url_MONGO: process.env.DATABASE_URL
+            }
+        )
     }
 
 

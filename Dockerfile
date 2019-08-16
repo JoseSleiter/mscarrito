@@ -2,7 +2,7 @@ FROM node:latest
 
 RUN mkdir -p /app
 
-RUN npm install nodemon -g
+# RUN npm install nodemon -g
 
 WORKDIR /app
 
