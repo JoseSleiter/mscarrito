@@ -1,6 +1,6 @@
 'use strict'
-const Producto = require ('../models/producto.module')
-const Carrito = require ('../models/carrito.module')
+const Producto = require ('./producto.module')
+const Carrito = require ('./carrito.module')
 const mongoose = require ('mongoose')
 
 const schema = new mongoose.Schema({

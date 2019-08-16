@@ -1,6 +1,6 @@
 'use strict'
-const Cliente = require('../models/cliente.module')
-const Direccion = require('../models/direccion.module')
+const Cliente = require('./cliente.module')
+const Direccion = require('./direccion.module')
 const mongoose = require ('mongoose')
 
 const schema = new mongoose.Schema({

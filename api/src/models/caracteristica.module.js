@@ -1,5 +1,5 @@
 'use strict'
-const Producto = require('../models/producto.module')
+const Producto = require('./producto.module')
 const mongoose = require('mongoose')
 
 var schema = new mongoose.Schema({
