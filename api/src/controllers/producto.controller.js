@@ -3,17 +3,25 @@ const Producto = require('../models/producto.module');
 const ObjectID = require('mongodb').ObjectID;   
 
 class ProductoController{
+
+    static async test(req, res){
+        res.status(200).json({data: "todo bien, es un test"})
+    }
+
+
     /**
      * Returns all the products in the documents
      * @param {*} req datos de peticion del cliente
-     * @param {*} res respuesta del servidor
+     * @param {*} res respuesta del servidor 39200
      */
     static async index(req, res){      
         try{
             let response = Producto.find({})
 
-            response.then((products) =>{                        
-                res.status(200).json(products);  
+            response.then( async (products) =>{             
+                let count = await Producto.count({})          
+                res.status(200).json({products, count});  
+
             }).catch( err => {
                 res.status(400).json(err)
             });
@@ -93,16 +101,17 @@ class ProductoController{
 
     static async delete(req, res) {
         let {id} = req.params;
-        let response = Producto.remove({ precio: id });
-        
+        // deleteOne, deleteMany, findByIdAndRemove(id), findByIdAndUpdate(id, params,{new: true})
+        let response = Producto.remove({ _id:ObjectID(id )});
         try{
             response.then( product =>{
+
                 if(!product.n)
-                return res.status(404).send({message: 'Not found'})
+                return res.status(404).send({message: 'Not found user'})
     
                 res.status(200).send({ message: `Eliminado producto ${id}`});
-            }).catch( err =>{
-                res.status(400).send({ message: 'Error en la peticion'});
+            }).catch( err =>{                
+                res.status(400).send({ message: 'Error en la peticion', error: err});
     
             })      
         }catch(Exception){
