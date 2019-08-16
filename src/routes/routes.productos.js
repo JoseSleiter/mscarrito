@@ -1,5 +1,5 @@
 const express  = require('express');
-const ProductoCtrl = require('../controllers/productos.controller')
+const ProductoCtrl = require('../controllers/producto.controller')
 const producto = express.Router();
 
 producto
@@ -7,4 +7,5 @@ producto
 .post('/productos', ProductoCtrl.store)
 .get('/productos/:id', ProductoCtrl.show)
 .delete('/productos/:id', ProductoCtrl.delete)
+
 module.exports = producto;
